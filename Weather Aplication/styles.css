@@ -1,0 +1,147 @@
+body {
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIHmFqMso24yvYMueh2jw88164b0TlOXbD3Q&s') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    overflow-y: auto; /* enable vertical scroll if content overflows */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+}
+
+/* Contrast overlay */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+#weather-container {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.15);
+    max-width: 400px;
+    width: 100%;
+    padding: 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+h2, h3, label, p {
+    color: #ffffff;
+    margin: 10px 0;
+}
+
+input {
+    width: calc(100% - 16px);
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+button {
+    margin-top: 20px;
+    width: 120px;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #00b4db, #0083b0);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #00a2c9, #00688b);
+    transform: scale(1.05);
+}
+
+#temp-div p {
+    font-size: 44px;
+    font-weight: bold;
+    color: #fff;
+    margin: 10px 0;
+}
+
+#weather-info {
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+}
+
+#weather-icon {
+    width: 140px;
+    height: 140px;
+    margin: 10px auto;
+    display: none;
+}
+
+#hourly-heading {
+    color: #fff;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+/* Scrollable time-wise forecast */
+#hourly-forecast {
+    margin-top: 15px;
+    overflow-x: auto;
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar styles */
+#hourly-forecast::-webkit-scrollbar {
+    height: 8px;
+}
+#hourly-forecast::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+#hourly-forecast::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+}
+
+.hourly-item {
+    flex: 0 0 auto;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    color: white;
+    font-size: 14px;
+}
+
+.hourly-item span {
+    margin: 3px 0;
+}
+
+.hourly-item img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
